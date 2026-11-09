@@ -1,0 +1,774 @@
+:root {
+    --bg: #031217;
+    --card: #061b21;
+    --input: #19343b;
+    --cyan: #00e5ff;
+    --cyan2: #00d2d3;
+    --text: #ffffff;
+    --muted: #91b5ba;
+    --border: #00d9e8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top center,
+            #123d45 0%,
+            #071418 42%,
+            #061115 100%
+        );
+
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header-banner {
+    width: 100%;
+    height: 250px;
+
+    margin-bottom: 36px;
+
+    border-radius: 28px;
+
+    border: 1.5px solid var(--cyan);
+
+    overflow: hidden;
+
+    background-image:
+        url("https://raw.githubusercontent.com/duynh1998/Banner/main/ChatGPT%20Image%2013_10_56%204%20thg%208%2C%202026.png");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    background-color: #071418;
+
+    box-shadow:
+        0 0 20px rgba(0, 229, 255, .18);
+}
+
+
+/* =====================================================
+   ROW
+===================================================== */
+
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.row > * {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.glass-card {
+    width: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 32, 39, .98),
+            rgba(7, 25, 31, .98)
+        );
+
+    border: 1.5px solid var(--border);
+
+    border-radius: 26px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 0 20px rgba(0, 210, 211, .12);
+
+    margin-bottom: 24px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--cyan);
+
+    font-size: 28px;
+    line-height: 1.2;
+
+    font-weight: 800;
+}
+
+.section-title i {
+    font-size: 32px;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+
+    background: var(--border);
+
+    opacity: .55;
+
+    margin-top: 24px;
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.form-group label {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   INPUT + SELECT
+===================================================== */
+
+.form-control,
+.form-select {
+
+    display: block;
+
+    width: 100%;
+
+    height: 58px;
+    min-height: 58px;
+
+    padding: 0 18px;
+
+    background: var(--input);
+
+    color: #ffffff;
+
+    border: 1.5px solid var(--cyan2);
+
+    border-radius: 16px;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    outline: none;
+
+    box-shadow: none;
+}
+
+
+.form-control::placeholder {
+    color: #8eb2b7;
+    opacity: 1;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+
+    background: #1b3941;
+
+    color: #ffffff;
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 0 2px rgba(0, 229, 255, .08),
+        0 0 15px rgba(0, 229, 255, .18);
+
+    outline: none;
+}
+
+
+.form-select option {
+    background: #0b2027;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   CHECK IN BUTTON
+===================================================== */
+
+.btn-ghn {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    height: 70px;
+    min-height: 70px;
+
+    margin-top: 30px;
+
+    padding: 14px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00cdd0,
+            #00dfe1
+        );
+
+    color: #001316;
+
+    border: none;
+
+    border-radius: 16px;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 24px rgba(0, 210, 211, .20);
+
+    transition: .2s ease;
+}
+
+
+.btn-ghn i {
+    font-size: 28px;
+}
+
+
+.btn-ghn:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00e5e7,
+            #0af4f5
+        );
+
+    color: #001316;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   CHECK OUT BUTTON
+===================================================== */
+
+.btn-checkout {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    height: 70px;
+    min-height: 70px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    padding: 14px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00cdd0,
+            #00dfe1
+        );
+
+    color: #001316;
+
+    border: none;
+
+    border-radius: 16px;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 24px rgba(0, 210, 211, .20);
+
+    transition: .2s ease;
+}
+
+
+.btn-checkout i {
+    font-size: 28px;
+}
+
+
+.btn-checkout:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00e5e7,
+            #0af4f5
+        );
+
+    color: #001316;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   CHECKOUT INFO
+===================================================== */
+
+.checkout-info {
+
+    width: 100%;
+
+    min-height: 210px;
+
+    margin-top: 0;
+
+    padding: 24px 18px;
+
+    border: 1px dashed var(--cyan);
+
+    border-radius: 18px;
+
+    background:
+        rgba(3, 22, 28, .65);
+}
+
+
+.empty-state {
+
+    min-height: 160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.empty-state i {
+
+    font-size: 50px;
+
+    color: var(--cyan);
+
+    margin-bottom: 15px;
+}
+
+
+.empty-state h5 {
+
+    margin: 0 0 10px;
+
+    color: var(--cyan);
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+.empty-state p {
+
+    margin: 0;
+
+    color: #c8d9dc;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+.empty-state b {
+    color: var(--cyan);
+}
+
+
+/* =====================================================
+   CHECKOUT DATA
+===================================================== */
+
+.checkout-info .mb-3,
+.checkout-info .mb-4 {
+
+    padding: 14px 16px;
+
+    margin-bottom: 12px !important;
+
+    background:
+        rgba(25, 52, 59, .65);
+
+    border-radius: 12px;
+}
+
+
+.checkout-info b {
+    color: var(--cyan);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    padding: 18px 0 25px;
+
+    text-align: center;
+
+    color: #91a7ac;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 767.98px) {
+
+    html,
+    body {
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        overflow-x: hidden;
+    }
+
+
+    .container {
+
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    .row {
+
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
+    .row > * {
+
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /* HEADER */
+
+    .header-banner {
+
+        height: 145px;
+
+        margin-bottom: 24px;
+
+        border-radius: 20px;
+    }
+
+
+    /* CARD */
+
+    .glass-card {
+
+        padding:
+            24px
+            20px
+            30px;
+
+        margin-bottom: 20px;
+
+        border-radius: 24px;
+    }
+
+
+    /* TITLE */
+
+    .section-title {
+
+        font-size: 26px;
+    }
+
+
+    .section-title i {
+
+        font-size: 31px;
+    }
+
+
+    /* DIVIDER */
+
+    .section-divider {
+
+        margin-top: 22px;
+
+        margin-bottom: 28px;
+    }
+
+
+    /* FORM */
+
+    .form-group {
+
+        margin-bottom: 22px;
+    }
+
+
+    .form-group label {
+
+        font-size: 18px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .form-control,
+    .form-select {
+
+        height: 58px;
+
+        min-height: 58px;
+
+        font-size: 18px;
+
+        border-radius: 15px;
+    }
+
+
+    /* =========================================
+       QUAN TRỌNG:
+       SỐ ĐIỆN THOẠI → CHECK IN
+    ========================================= */
+
+    .btn-ghn {
+
+        height: 70px;
+
+        min-height: 70px;
+
+        margin-top: 30px;
+
+        border-radius: 16px;
+
+        font-size: 21px;
+    }
+
+
+    /* =========================================
+       CHECK OUT BUTTON
+    ========================================= */
+
+    .btn-checkout {
+
+        height: 70px;
+
+        min-height: 70px;
+
+        margin-top: 28px;
+
+        margin-bottom: 28px;
+
+        border-radius: 16px;
+
+        font-size: 21px;
+    }
+
+
+    .checkout-info {
+
+        min-height: 210px;
+
+        padding:
+            22px
+            18px;
+    }
+
+
+    .empty-state i {
+
+        font-size: 48px;
+    }
+
+
+    .empty-state h5 {
+
+        font-size: 20px;
+    }
+
+
+    .empty-state p {
+
+        font-size: 15px;
+    }
+
+
+    .footer {
+
+        font-size: 14px;
+
+        padding-bottom: 20px;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONE
+===================================================== */
+
+@media (max-width: 390px) {
+
+    .container {
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+
+    .glass-card {
+
+        padding:
+            22px
+            16px
+            28px;
+
+        border-radius: 21px;
+    }
+
+
+    .header-banner {
+
+        height: 130px;
+    }
+
+
+    .section-title {
+
+        font-size: 24px;
+    }
+
+
+    .section-title i {
+
+        font-size: 29px;
+    }
+
+
+    .form-control,
+    .form-select {
+
+        height: 56px;
+
+        min-height: 56px;
+
+        font-size: 17px;
+    }
+
+
+    .btn-ghn,
+    .btn-checkout {
+
+        height: 66px;
+
+        min-height: 66px;
+
+        font-size: 20px;
+    }
+}

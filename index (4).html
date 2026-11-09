@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#071418">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>GHN Attendance</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=15">
+
+  <style>
+    .employee-info {
+      padding: 16px;
+      border: 1px dashed var(--cyan);
+      border-radius: 16px;
+      background: rgba(3,22,28,.65);
+      margin: 16px 0;
+      color: #fff;
+    }
+    .employee-info .info-line {
+      padding: 8px 4px;
+      border-bottom: 1px solid rgba(0,217,232,.16);
+      line-height: 1.5;
+    }
+    .employee-info .info-line:last-child { border-bottom: 0; }
+    .employee-info b { color: var(--cyan); }
+
+    .btn-sub {
+      width: 100%;
+      min-height: 54px;
+      border: 1px solid var(--cyan);
+      border-radius: 14px;
+      background: #12323a;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .btn-sub:disabled,
+    .btn-ghn:disabled,
+    .btn-checkout:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status-text {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+
+<body>
+  <header class="container app-container">
+    <div class="header-banner"></div>
+  </header>
+
+  <main class="container app-container">
+    <div class="row g-4">
+
+      <!-- CHECK IN -->
+      <div class="col-12 col-lg-6">
+        <section class="glass-card">
+          <div class="section-title">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>CHECK IN</span>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <div class="form-group">
+            <label for="employeeId">Mã nhân viên</label>
+            <input
+              id="employeeId"
+              class="form-control"
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              placeholder="Nhập mã nhân viên"
+            >
+          </div>
+
+          <button
+            id="lookupBtn"
+            class="btn-sub"
+            type="button"
+            onclick="lookupEmployee()"
+          >
+            <i class="bi bi-search"></i> TRA CỨU NHÂN VIÊN
+          </button>
+
+          <div id="lookupStatus" class="status-text" aria-live="polite"></div>
+
+          <div id="employeeInfo" class="employee-info hidden">
+            <div class="info-line">
+              <b>Họ và tên:</b> <span id="empName">-</span>
+            </div>
+            <div class="info-line">
+              <b>Mã nhân viên:</b> <span id="empId">-</span>
+            </div>
+            <div class="info-line">
+              <b>Bưu cục:</b> <span id="empWarehouse">-</span>
+            </div>
+            <div class="info-line">
+              <b>Điểm làm việc:</b> <span id="empWorkPoint">-</span>
+            </div>
+            <div class="info-line">
+              <b>Quản lý:</b> <span id="empManager">-</span>
+            </div>
+            <div class="info-line">
+              <b>Nhóm:</b> <span id="empGroup">-</span>
+            </div>
+          </div>
+
+          <div id="shiftGroup" class="form-group hidden">
+            <label for="shiftSelect">Ca làm việc</label>
+            <select
+              id="shiftSelect"
+              class="form-select"
+              onchange="updateCheckInButton()"
+            >
+              <option value="">-- Chọn ca làm việc --</option>
+            </select>
+          </div>
+
+          <button
+            id="checkInBtn"
+            class="btn-ghn"
+            type="button"
+            onclick="checkIn()"
+            disabled
+          >
+            <i class="bi bi-box-arrow-in-right"></i> CHECK IN
+          </button>
+
+          <div id="checkInStatus" class="status-text" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <!-- CHECK OUT -->
+      <div class="col-12 col-lg-6">
+        <section class="glass-card">
+          <div class="section-title">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>CHECK OUT</span>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <div class="form-group">
+            <label for="checkoutEmployeeId">Mã nhân viên</label>
+            <input
+              id="checkoutEmployeeId"
+              class="form-control"
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              placeholder="Nhập mã nhân viên"
+            >
+          </div>
+
+          <button
+            id="checkoutLookupBtn"
+            class="btn-sub"
+            type="button"
+            onclick="kiemTraCheckOut()"
+          >
+            <i class="bi bi-search"></i> KIỂM TRA CA LÀM
+          </button>
+
+          <div id="checkoutStatus" class="status-text" aria-live="polite"></div>
+
+          <div id="checkoutInfo" class="checkout-info mt-3">
+            <div class="empty-state">
+              <i class="bi bi-clock-history"></i>
+              <h5>CHƯA CÓ THÔNG TIN</h5>
+              <p>Nhập mã nhân viên để kiểm tra ca làm việc cần Check Out.</p>
+            </div>
+          </div>
+
+          <button
+            id="checkOutBtn"
+            class="btn-checkout hidden"
+            type="button"
+            onclick="checkOut()"
+          >
+            <i class="bi bi-box-arrow-right"></i> CHECK OUT
+          </button>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="container app-container">
+    <div class="footer">GHN Attendance</div>
+  </footer>
+
+  <script src="script.js?v=15"></script>
+</body>
+</html>
