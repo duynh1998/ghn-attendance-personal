@@ -1,7 +1,7 @@
 
 /* GHN ATTENDANCE - FRONTEND V16 */
 
-const API_URL = "https://script.google.com/macros/s/AKfycbz4C8D4frpyfPEbYlegIDo3sJVtsMhNzOz7gqUTGGLBZ5se2jRcwMOVmhk-kzOXscDdZg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbz-jo3LBDMwxjaY3UDqDMaNXDY2_h8ioZjV39RsESq9n0cK8taFyYc7sCQY_Alxr0i4Mg/exec";
 
 let currentEmployee = null;
 let currentShifts = [];
